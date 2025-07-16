@@ -1,1 +1,14 @@
 {"level":"error","message":"Mensaje de error","timestamp":"2025-06-04T23:27:15.105Z"}
+{"level":"error","message":"Mensaje de error","timestamp":"2025-07-08T21:25:47.198Z"}
+
+ - Fecha: Tue Jul 08 2025 19:13:58 GMT-0300 (hora estándar de Argentina) - {"name":"MissingPetFields","message":"Faltan campos obligatorios para registrar la mascota."}
+ - Fecha: Tue Jul 08 2025 19:47:27 GMT-0300 (hora estándar de Argentina) - {"name":"SyntaxError","message":"Expected double-quoted property name in JSON at position 68 (line 5 column 1)"}
+ - Fecha: Tue Jul 08 2025 19:57:06 GMT-0300 (hora estándar de Argentina) - {"name":"SyntaxError","message":"Expected double-quoted property name in JSON at position 68 (line 5 column 1)"}
+ - Fecha: Tue Jul 08 2025 19:59:22 GMT-0300 (hora estándar de Argentina) - {"name":"MissingPetFields","message":"Faltan campos obligatorios para registrar la mascota."}
+ - Fecha: Tue Jul 08 2025 20:45:53 GMT-0300 (hora estándar de Argentina) - {"name":"Error","message":"simulando error"}
+ - Fecha: Tue Jul 08 2025 20:53:31 GMT-0300 (hora estándar de Argentina) - {"name":"CastError","message":"Cast to ObjectId failed for value \":pid\" (type string) at path \"_id\" for model \"Pets\""}
+ - Fecha: Tue Jul 15 2025 20:24:49 GMT-0300 (hora estándar de Argentina) - {"name":"CastError","message":"Cast to ObjectId failed for value \":686d98bb54b9a36fe0bf92e1\" (type string) at path \"_id\" for model \"Pets\""}
+ - Fecha: Tue Jul 15 2025 20:25:44 GMT-0300 (hora estándar de Argentina) - {"name":"CastError","message":"Cast to ObjectId failed for value \":686da25cb5acf4e815ed425b\" (type string) at path \"_id\" for model \"Pets\""}
+ - Fecha: Tue Jul 15 2025 20:52:03 GMT-0300 (hora estándar de Argentina) - {"name":"PetNotFound","message":"Mascota no encontrada."}
+ - Fecha: Tue Jul 15 2025 20:55:05 GMT-0300 (hora estándar de Argentina) - {"name":"PetNotFound","message":"Mascota no encontrada."}
+ - Fecha: Tue Jul 15 2025 20:55:20 GMT-0300 (hora estándar de Argentina) - {"name":"PetNotFound","message":"Mascota no encontrada."}

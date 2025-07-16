@@ -10,7 +10,8 @@ import { errorHandler } from './middleware/errorHandler.js';
 import { connectDB } from './config/db.js';
 import { config } from './config/config.js';
 import logger from './utils/logger.js';
-
+import swaggerJsDoc from 'swagger-jsdoc';
+import swaggerUiExpress from "swagger-ui-express";
 
 const app = express();
 mongoose.set('strictQuery', true);
@@ -35,6 +36,26 @@ app.use('/loggerTest', (req, res) => {
     return res.status(200).json({ payload: "Pruebas log OK...!!!" });
 })
 app.use(errorHandler)
+
+const swaggerOptions = {
+    definition: {
+        openapi: "3.0.0",
+        info: {
+            title: "Documentacion de API de adopción de mascotas",
+            description: "API para gestionar la adopción de mascotas",
+            version: "1.0.0"
+        },
+        servers: [
+        {
+            url: "http://localhost:3000",
+            description: "Production"
+        }
+        ]
+    },
+    apis: ["./src/docs/*.yaml"]
+}
+const specs = swaggerJsDoc(swaggerOptions);
+app.use('/api/docs', swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
 
 const server = app.listen(config.PORT, () => {
     logger.info(`Escuchando en ${config.PORT}`)

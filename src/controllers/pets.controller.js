@@ -5,9 +5,13 @@ import { petsService } from "../services/index.js"
 import __dirname from "../utils/index.js";
 import logger from "../utils/logger.js";
 
-const getAllPets = async (req, res) => {
-    const pets = await petsService.getAll();
-    res.send({ status: "success", payload: pets })
+const getAllPets = async (req, res, next) => {
+    try {
+        const pets = await petsService.getAll();
+        res.send({ status: "success", payload: pets })
+    } catch (error) {
+        next(error);
+    }
 }
 
 const createPet = async (req, res, next) => {
@@ -52,12 +56,12 @@ const updatePet = async (req, res, next) => {
         }
         const result = await petsService.update(petId, petUpdateBody);
         if (!result) {
-             CustomError.generateError(
-                 "PetUpdateFailed",
-                 "No se pudo actualizar la mascota.",
-                 `La operación de actualización para la mascota con ID ${petId} falló sin un error explícito.`,
-                 errorDictionary.general.SERVER_ERROR.statusCode,
-             );
+            CustomError.generateError(
+                "PetUpdateFailed",
+                "No se pudo actualizar la mascota.",
+                `La operación de actualización para la mascota con ID ${petId} falló sin un error explícito.`,
+                errorDictionary.general.SERVER_ERROR.statusCode,
+            );
         }
         res.send({ status: "success", message: "Mascota actualizada exitosamente" });
     } catch (error) {
@@ -68,7 +72,7 @@ const updatePet = async (req, res, next) => {
 const deletePet = async (req, res, next) => {
     try {
         const petId = req.params.pid;
-         if (!petId) {
+        if (!petId) {
             CustomError.generateError(
                 'InvalidPetId',
                 errorDictionary.general.BAD_REQUEST.message,
@@ -77,7 +81,7 @@ const deletePet = async (req, res, next) => {
             );
         }
         const result = await petsService.delete(petId);
-       if (!result) {
+        if (!result) {
             CustomError.generateError(
                 'PetNotFound',
                 errorDictionary.pet.NOT_FOUND.message,

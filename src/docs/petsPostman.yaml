@@ -1,0 +1,294 @@
+paths:
+  /api/pets:
+    parameters: []
+    get:
+      summary: Listado Mascotas
+      tags:
+      - Pets
+      parameters: []
+      responses:
+        '200':
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+              example: Express
+            Content-Type:
+              schema:
+                type: string
+              example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+              example: '61405'
+            ETag:
+              schema:
+                type: string
+              example: W/"efdd-Py3p8FCj2V178O8Aj0vn0ZHMxvI"
+            Date:
+              schema:
+                type: string
+              example: Tue, 08 Jul 2025 22:11:17 GMT
+            Connection:
+              schema:
+                type: string
+              example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+              example: timeout=5
+          description: Respuesta Get Pets
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  payload:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        _id:
+                          type: string
+                        name:
+                          type: string
+                        specie:
+                          type: string
+                          format: color
+                        birthDate:
+                          type: string
+                          format: date-time
+                        adopted:
+                          type: boolean
+                        owner:
+                          nullable: true
+                        image:
+                          type: string
+                          format: uri
+                        __v:
+                          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+    post:
+      summary: Registrar Mascota
+      tags:
+      - Pets
+      parameters: []
+      responses:
+        '201':
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+              example: Express
+            Content-Type:
+              schema:
+                type: string
+              example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+              example: '191'
+            ETag:
+              schema:
+                type: string
+              example: W/"bf-EcuOMmD4fMdY/FRPUulbmZIhVfc"
+            Date:
+              schema:
+                type: string
+              example: Tue, 08 Jul 2025 22:16:27 GMT
+            Connection:
+              schema:
+                type: string
+              example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+              example: timeout=5
+          description: Mascota Generada
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  payload:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      specie:
+                        type: string
+                      birthDate:
+                        type: string
+                        format: date-time
+                      adopted:
+                        type: boolean
+                      image:
+                        type: string
+                      _id:
+                        type: string
+                      __v:
+                        type: integer
+        '400':
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+              example: Express
+            Content-Type:
+              schema:
+                type: string
+              example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+              example: '175'
+            ETag:
+              schema:
+                type: string
+              example: W/"af-zAumyZPzuN8dOkmO8Ba+1RoKCCs"
+            Date:
+              schema:
+                type: string
+              example: Tue, 08 Jul 2025 22:59:22 GMT
+            Connection:
+              schema:
+                type: string
+              example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+              example: timeout=5
+          description: Error Registro Mascota - Faltan campos obligatorios.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  cause:
+                    type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                specie:
+                  type: string
+                birthDate:
+                  type: string
+/api/pets/{pid}:
+    parameters:
+      - name: pid
+        in: path
+        required: true
+        schema:
+          type: string
+    delete:
+      summary: Eliminar Mascota
+      tags:
+      - Pets
+      parameters: []
+      responses:
+        '200':
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+              example: Express
+            Content-Type:
+              schema:
+                type: string
+              example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+              example: '44'
+            ETag:
+              schema:
+                type: string
+              example: W/"2c-svdbgGMEjcJ84Q+cj4U0n/Vc484"
+            Date:
+              schema:
+                type: string
+              example: Tue, 15 Jul 2025 23:52:29 GMT
+            Connection:
+              schema:
+                type: string
+              example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+              example: timeout=5
+          description: Eliminar Mascota
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+        '404':
+          headers:
+            X-Powered-By:
+              schema:
+                type: string
+              example: Express
+            Content-Type:
+              schema:
+                type: string
+              example: application/json; charset=utf-8
+            Content-Length:
+              schema:
+                type: integer
+              example: '79'
+            ETag:
+              schema:
+                type: string
+              example: W/"4f-216rVosnaOqBiLExeu7MNslgkeA"
+            Date:
+              schema:
+                type: string
+              example: Tue, 15 Jul 2025 23:55:20 GMT
+            Connection:
+              schema:
+                type: string
+              example: keep-alive
+            Keep-Alive:
+              schema:
+                type: string
+              example: timeout=5
+          description: Error al eliminar mascota
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Mascota no encontrada
+                  error:
+                    type: string
+                  cause:
+                    type: object
+                    properties:
+                      petId:
+                        type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
