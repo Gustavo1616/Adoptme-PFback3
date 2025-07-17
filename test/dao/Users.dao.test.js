@@ -4,7 +4,7 @@ import { describe, it } from "mocha";
 import Assert from "assert";
 
 try {
-    await mongoose.connect("mongodb+srv://gustelio97:a5DCwTHmrIpASlMC@cluster0.m9fgt.mongodb.net")
+    await mongoose.connect("mongodb+srv://gustelio97:eKS3jLTHcEmj5EFt@cluster0.m9fgt.mongodb.net/adoptme")
 } catch (error) {
     console.log("Error al conectar a la base de datos");
 }
