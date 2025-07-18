@@ -1,15 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
-import usersRouter from './routes/users.router.js';
-import petsRouter from './routes/pets.router.js';
-import adoptionsRouter from './routes/adoption.router.js';
-import sessionsRouter from './routes/sessions.router.js';
-import mockingRouter from './routes/mocking.router.js';
-import { errorHandler } from './middleware/errorHandler.js';
-import { connectDB } from './config/db.js';
-import { config } from './config/config.js';
-import logger from './utils/logger.js';
+import usersRouter from './src/routes/users.router.js';
+import petsRouter from './src/routes/pets.router.js';
+import adoptionsRouter from './src/routes/adoption.router.js';
+import sessionsRouter from './src/routes/sessions.router.js';
+import mockingRouter from './src/routes/mocking.router.js';
+import { errorHandler } from './src/middleware/errorHandler.js';
+import { connectDB } from './src/config/db.js';
+import { config } from './src/config/config.js';
+import logger from './src/utils/logger.js';
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUiExpress from "swagger-ui-express";
 
